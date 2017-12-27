@@ -11,7 +11,7 @@ var getWeather = (lat,lng,callback) => {
     } else if(response.statusCode === 400) {
       callback('Unalble to fetch weather');
     } else if(response.statusCode === 200){
-    callback(undefined,{
+    callback(undefined,{                                                      //a callback can be called more than once and hence there is a chance of accidental call but a promise is called only once, i.e., the 1st time.
       temperature: body.currently.temperature,
       apparentTemperature: body.currently.apparentTemperature
     });
